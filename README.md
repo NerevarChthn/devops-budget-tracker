@@ -8,6 +8,6 @@ Budget Tracker Angular & PHP - Eine App zum Tracken von Eingaben und Ausgaben
 - beide Microservices teilen sich die Lib "data-models"
 
 ## Build-Prozess (Befehle für den Workspace):
-1. Compilieren der Lib: ``ng build data-modles``
+1. Compilieren der Lib: ``ng build data-models``
 2. Starten von Add-Transaction: ``ng serve Add-Transaction``
 3. Starten von Budget-List: ``ng serve Budget-List``
