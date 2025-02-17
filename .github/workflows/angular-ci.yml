@@ -10,7 +10,7 @@ on:
     branches: [ "master" ]
 
 jobs:
-  angular:
+  angular-build-test:
     name: Angular Build
     runs-on: ubuntu-latest
     strategy:
@@ -38,3 +38,13 @@ jobs:
       - name: Build
         working-directory: budget-tracker-frontend
         run: npm run build
+  docker:
+    name: Build Docker Container
+    runs-on: ubuntu-latest
+    needs: angular-build-test
+    steps:
+      - name: Build Docker Image
+        working-directory: budget-tracker-frontend
+        run: docker build -t budget-tracker-frontend .
+      - name: Run Docker Container (optional, für Tests)
+        run: docker run -d -p 8080:80 --name budget-tracker budget-tracker-frontend
