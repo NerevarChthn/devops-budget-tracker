@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'budget-tracker-frontend' title`, () => {
+  it(`should have the 'Budget-List' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('budget-tracker-frontend');
+    expect(app.title).toEqual('Budget-List');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, budget-tracker-frontend');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, Budget-List');
   });
 });

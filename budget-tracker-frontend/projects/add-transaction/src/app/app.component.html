@@ -1,0 +1,28 @@
+<div class="main"> 
+  <section class="new-transaction">
+    <h2>Neue Transaktion hinzufügen</h2>
+    <form [formGroup]="profileForm" (ngSubmit)="addTransaction()">
+      <div>
+        <label for="date">Datum:</label>
+        <input type="date" name="date" formControlName="datum" [(ngModel)]="transaction.datum" required>
+      </div>
+      <div>
+        <label for="description">Beschreibung:</label>
+        <input type="text" name="description" formControlName="beschreibung" [(ngModel)]="transaction.beschreibung" required>
+      </div>
+      <div>
+        <label for="amount">Betrag:</label>
+        <input type="number" name="amount" formControlName="betrag" [(ngModel)]="transaction.betrag" required>
+      </div>
+      <div>
+        <label for="type">Typ:</label>
+        <select name="type" formControlName="typ" [(ngModel)]="transaction.typ" required>
+          <option value="income">Einnahme</option>
+          <option value="expense">Ausgabe</option>
+        </select>
+      </div>
+      <button>Hinzufügen</button>
+    </form>
+  </section>
+</div>
+<router-outlet />

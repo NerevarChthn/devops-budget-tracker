@@ -1,0 +1,203 @@
+/* Allgemeines Layout */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+   
+.main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  /* Header & Navigation */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+  
+  header h1 {
+    margin: 0;
+    color: #333;
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  nav ul li {
+    margin-right: 15px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #007bff;
+    transition: color 0.3s;
+  }
+  
+  nav ul li a:hover {
+    color: #0056b3;
+  }
+  
+  /* Übersichtskarten */
+  section.overview {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .overview .card {
+    flex: 1;
+    min-width: 250px;
+    margin: 10px;
+    padding: 20px;
+    background-color: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+  }
+  
+  .overview .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .overview .card h3 {
+    margin-bottom: 10px;
+    color: #555;
+  }
+  
+  .overview .card p {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Transaktionstabelle */
+  section.transactions {
+    margin-bottom: 20px;
+  }
+  
+  section.transactions h2 {
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  section.transactions table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  section.transactions table th,
+  section.transactions table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  section.transactions table th {
+    background-color: #f4f4f9;
+    font-weight: bold;
+  }
+  
+  section.transactions table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  section.transactions table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .income {
+    color: green;
+  }
+  
+  .expense {
+    color: red;
+  }
+  
+  /* Neues Transaktionsformular */
+  section.new-transaction {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  section.new-transaction h2 {
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+  }
+  
+  section.new-transaction form div {
+    margin-bottom: 15px;
+  }
+  
+  section.new-transaction form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  section.new-transaction form input[type="text"],
+  section.new-transaction form input[type="number"],
+  section.new-transaction form input[type="date"],
+  section.new-transaction form select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  section.new-transaction button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  section.new-transaction button:hover {
+    background-color: #218838;
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    margin-top: 20px;
+    color: #777;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .overview {
+      flex-direction: column;
+    }
+  
+    .overview .card {
+      margin: 10px 0;
+    }
+  }
+  
