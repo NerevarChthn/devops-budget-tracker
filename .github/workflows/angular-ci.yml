@@ -74,7 +74,7 @@ jobs:
           name: budget-tracker-frontend-image
   
       - name: Load Docker Image
-        run: docker load < budget-tracker-frontend.tar.gz
+        run: docker load -i budget-tracker-frontend.tar.gz
   
       - name: Extract Static Files from Docker Image
         run: |
