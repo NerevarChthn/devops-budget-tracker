@@ -77,7 +77,7 @@ jobs:
       - name: Liste Verzeichnisinhalt auf
         run: ls -alh
       - name: Load Docker Image
-        run: docker load < budget-tracker-frontend
+        run: docker load -i budget-tracker-frontend
   
       - name: Extract Static Files from Docker Image
         run: |
