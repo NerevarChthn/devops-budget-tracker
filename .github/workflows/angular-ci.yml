@@ -72,7 +72,8 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: budget-tracker-frontend-image
-  
+      - name: Liste Verzeichnisinhalt auf
+        run: ls -alh
       - name: Load Docker Image
         run: docker load < budget-tracker-frontend-image
   
