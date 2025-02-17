@@ -72,10 +72,12 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: budget-tracker-frontend-image
+      - name: Archiv entpacken
+        run: tar -xzvf budget-tracker-frontend.tar.gz
       - name: Liste Verzeichnisinhalt auf
         run: ls -alh
       - name: Load Docker Image
-        run: docker load < budget-tracker-frontend-image
+        run: docker load < budget-tracker-frontend
   
       - name: Extract Static Files from Docker Image
         run: |
