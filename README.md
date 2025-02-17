@@ -7,6 +7,7 @@ Budget Tracker Angular & PHP - Eine App zum Tracken von Eingaben und Ausgaben
 - werden durch "Module Federation" verwaltet (Budget-List dient als "Host", der Add-Transaction lädt)
 - beide Microservices teilen sich die Lib "data-models"
 
-## Befehle für den Workspace:
-- zum Starten von Add-Transaction: ``ng serve Add-Transaction``
-- zum Starten von Budget-List: ``ng serve Budget-List``
+## Build-Prozess (Befehle für den Workspace):
+1. Compilieren der Lib: ``ng build data-modles``
+2. Starten von Add-Transaction: ``ng serve Add-Transaction``
+3. Starten von Budget-List: ``ng serve Budget-List``
