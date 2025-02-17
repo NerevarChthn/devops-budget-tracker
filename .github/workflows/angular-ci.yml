@@ -38,7 +38,7 @@ jobs:
       - name: Build
         working-directory: budget-tracker-frontend
         run: npm run build
-  docker:
+  docker-build:
     name: Build Docker Container
     runs-on: ubuntu-latest
     needs: angular-build-test
@@ -48,8 +48,11 @@ jobs:
       - name: Build Docker Image
         working-directory: budget-tracker-frontend
         run: docker build -t budget-tracker-frontend .
-      - name: Run Docker Container (optional, für Tests)
-        run: docker run -d -p 8080:80 --name budget-tracker budget-tracker-frontend
+  docker-export:
+    name: Export Docker Image
+    runs-on: ubuntu-latest
+    needs: docker-build
+    steps:
       - name: Export Docker Image
         run: docker save budget-tracker-frontend | gzip > budget-tracker-frontend.tar.gz
       - name: Upload Docker Image as Artifact
