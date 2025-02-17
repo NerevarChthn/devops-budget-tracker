@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [20]
+        node-version: [18.x]
     steps:
       - name: Checkout source code
         uses: actions/checkout@v3
@@ -28,10 +28,13 @@ jobs:
           cache-dependency-path: '**/package-lock.json'
 
       - name: Install dependencies
+        working-directory: budget-tracker-frontend
         run: npm ci
 
       - name: Run tests
+        working-directory: budget-tracker-frontend
         run: npm run test:ci
 
       - name: Build
+        working-directory: budget-tracker-frontend
         run: npm run build
