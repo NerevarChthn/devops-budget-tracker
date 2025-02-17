@@ -50,3 +50,10 @@ jobs:
         run: docker build -t budget-tracker-frontend .
       - name: Run Docker Container (optional, für Tests)
         run: docker run -d -p 8080:80 --name budget-tracker budget-tracker-frontend
+      - name: Export Docker Image
+        run: docker save budget-tracker-frontend | gzip > budget-tracker-frontend.tar.gz
+      - name: Upload Docker Image as Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: budget-tracker-frontend-image
+          path: budget-tracker-frontend.tar.gz
