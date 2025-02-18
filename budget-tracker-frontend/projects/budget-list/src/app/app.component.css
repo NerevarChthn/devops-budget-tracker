@@ -4,7 +4,11 @@ body {
     margin: 0;
     padding: 20px;
 }
-   
+
+input, select {
+    border: 0
+}
+
 .main {
     max-width: 1200px;
     margin: 20px auto;
