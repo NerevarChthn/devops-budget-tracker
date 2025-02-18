@@ -10,61 +10,36 @@
             <th>Typ</th>
             <th>Bearbeiten</th>
         </tr>
+        @for (transaction of transactions; track transaction.id){
         <tr>
-            <td>erstens</td>
-            <td>erstens</td>
-            <td>erstens</td>
-            <td>erstens</td>
             <td>
-                <button class="edit">
+              <input type="date" [(ngModel)]="transaction.datum" required/>
+            </td>
+            <td>
+              <input type="text" [(ngModel)]="transaction.beschreibung" required />
+            </td>
+            <td>
+              <input type="number" [(ngModel)]="transaction.betrag" class="form-control" required/>
+            </td>
+            <td>
+              <select [(ngModel)]="transaction.typ" class="form-control" required>
+                <option value="income">Einnahme</option>
+                <option value="expense">Ausgabe</option>
+              </select> 
+            </td>
+            <td>
+                <button class="edit" (click)="updateTransaction(transaction.id, transaction.datum, transaction.beschreibung, transaction.betrag, transaction.typ)">
                     <i class="fas fa-pen"></i>
                 </button>
-                <button class="delete">
+                <button class="delete" (click)="deleteTransaction(transaction.id)">
                     <i class="fas fa-trash"></i>
                 </button>
             </td>
         </tr>
-    </table>
-</section>
-    <section>
-      <h2></h2>
-      <div class="container">
-        @for (transaction of transactions; track transaction.id){
-        <div class="row">
-          <div class="col">
-            <input type="date" [(ngModel)]="transaction.datum" required/>
-          </div>
-          <div class="col">
-            <input type="text" [(ngModel)]="transaction.beschreibung" required />
-          </div>
-          <div class="col">
-            <input type="number" [(ngModel)]="transaction.betrag" class="form-control" required/>
-          </div>
-          <div class="col">
-            <select [(ngModel)]="transaction.typ" class="form-control" required>
-              <option value="income">Einnahme</option>
-              <option value="expense">Ausgabe</option>
-            </select>  
-          </div>
-          <div class="col">
-            <input
-              type="button"
-              value="Update"
-              class="btn btn-primary btn-sm"
-              (click)="updateTransaction(transaction.id, transaction.datum, transaction.beschreibung, transaction.betrag, transaction.typ)"
-            />
-            <input
-              type="button"
-              value="Delete"
-              class="btn btn-danger btn-sm"
-              (click)="deleteTransaction(transaction.id)"
-            />
-          </div>
-        </div>
       }
-      </div>
-    </section>
-  </div>
-  <div #placeHolder></div>
+    </table>
+  </section>
+</div>
+<div #placeHolder></div>
   
 <router-outlet />
