@@ -1,6 +1,33 @@
 <div class="main"> 
+  <section>
+    <h1>Übersicht Ausgaben</h1>
+    <div class="underline"></div>
+    <table>
+        <tr>
+            <th>Bezeichnung</th>
+            <th>Datum</th>
+            <th>Betrag</th>
+            <th>Typ</th>
+            <th>Bearbeiten</th>
+        </tr>
+        <tr>
+            <td>erstens</td>
+            <td>erstens</td>
+            <td>erstens</td>
+            <td>erstens</td>
+            <td>
+                <button class="edit">
+                    <i class="fas fa-pen"></i>
+                </button>
+                <button class="delete">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </td>
+        </tr>
+    </table>
+</section>
     <section>
-      <h2>Budget-Übersicht</h2>
+      <h2></h2>
       <div class="container">
         @for (transaction of transactions; track transaction.id){
         <div class="row">

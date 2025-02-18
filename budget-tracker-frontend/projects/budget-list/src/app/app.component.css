@@ -1,15 +1,74 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+    background-color: #f4f4f4;
     margin: 0;
-    padding: 0;
+    padding: 20px;
 }
    
 .main {
     max-width: 1200px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: #eaecef;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-  }
+}
+
+section {
+    background: rgb(254, 254, 255);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+h1 {
+    text-align: left;
+    color: #333;
+    margin-bottom: 10px;
+}
+.underline {
+    width: 100%;
+    height: 1px;
+    background-color: #ddd;
+    margin-bottom: 20px;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+    background: white;
+}
+th {
+    background: #d0d7e5;
+    color: #2c3e50;
+    font-weight: bold;
+}
+td {
+    overflow: visible;
+}
+.edit, .delete {
+    background: none;
+    cursor: pointer;
+    border: none;
+    padding: 5px 10px;
+    font-size: 1.2em;
+    transition: transform 0.2s;
+    margin: 0 5px;
+}
+.edit:hover, .delete:hover {
+    transform: scale(1.2);
+}
+.edit i {
+    color: royalblue;
+}
+.delete i {
+    color: red;
+}
