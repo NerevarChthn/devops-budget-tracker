@@ -102,4 +102,56 @@ export class AppComponent implements OnInit {
      });
      return budget;
   }
+
+  editMode: boolean = false;
+
+toggleRowEdit(id: number, date: string, beschreibung: string, betrag: number, typ: string, event: Event): void {
+  const button = event.currentTarget as HTMLElement;
+  const row = button.closest('tr'); // Die Tabellenzeile ermitteln
+
+  if (row) {
+      // Hole alle relevanten Eingabefelder innerhalb der Zeile
+      const inputs = row.querySelectorAll('input, select');
+
+      // Explizite Typumwandlung auf HTMLInputElement oder HTMLSelectElement
+      const formElements = Array.from(inputs) as (HTMLInputElement | HTMLSelectElement)[];
+
+      // Prüfen, ob die erste Input-Zelle deaktiviert ist
+      const isEditing = formElements[0] && !formElements[0].hasAttribute('disabled');
+
+      if (isEditing) {
+          // Speichern, wenn der Bearbeitungsmodus beendet wird
+          this.backendService
+      .updateTransaction({ id: id, datum: date, beschreibung: beschreibung, betrag: betrag, typ: typ })
+      .subscribe({
+        complete: () => {
+          console.info('Update war erfolgreich');
+          // aktualisiere die Budget-Liste
+          this.getTransactions();
+        },
+        error: (e) => (console.error(e.message))
+      });
+      }
+
+      // Inputs aktivieren oder deaktivieren
+      formElements.forEach((element) => {
+          if (isEditing) {
+              element.setAttribute('disabled', 'true'); // Deaktivieren
+          } else {
+              element.removeAttribute('disabled'); // Aktivieren
+          }
+      });
+
+      // Button-Icon wechseln
+      const icon = button.querySelector('i');
+      if (icon) {
+          icon.classList.toggle('fa-pen', isEditing);
+          icon.classList.toggle('fa-check', !isEditing);
+          icon.classList.toggle('text-success', !isEditing);
+          icon.classList.toggle('fa-lg', !isEditing);
+      }
+  }
+}
+
+
 }

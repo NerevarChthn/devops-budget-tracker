@@ -4,11 +4,36 @@ body {
     margin: 0;
     padding: 20px;
 }
+input:disabled, select:disabled {
+    border: none;
+    background-color: transparent;
+    color: black;
+}
+input:enabled, select:enabled {
+    border: 1px solid rgb(153, 139, 139);
+    border-radius: 6px;
+    color: black;
+}
+input:enabled {
+    padding-left: 5px;
 
-input, select {
-    border: 0
+}
+input[type="number"]:disabled::-webkit-inner-spin-button,
+input[type="number"]:disabled::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
+/* Für Firefox */
+input[type="number"]:disabled {
+    -moz-appearance: textfield;
+}
+select:disabled {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    
+}
 .main {
     max-width: 1200px;
     margin: 20px auto;
@@ -75,4 +100,9 @@ td {
 }
 .delete i {
     color: red;
+}
+
+b {
+    position: relative;
+    left: 450px;
 }

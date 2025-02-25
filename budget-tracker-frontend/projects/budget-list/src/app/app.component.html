@@ -13,16 +13,16 @@
         @for (transaction of transactions; track transaction.id){
         <tr>
             <td>
-              <input type="date" [(ngModel)]="transaction.datum" required/>
+              <input type="date" [(ngModel)]="transaction.datum" required disabled/>
             </td>
             <td>
-              <input type="text" [(ngModel)]="transaction.beschreibung" required />
+              <input type="text" [(ngModel)]="transaction.beschreibung" required disabled/>
             </td>
             <td>
-              <input type="number" [(ngModel)]="transaction.betrag" class="form-control" required/>
+              <input type="number" [(ngModel)]="transaction.betrag" class="form-control" required disabled/>
             </td>
             <td>
-              <select [(ngModel)]="transaction.typ" class="form-control" required>
+              <select [(ngModel)]="transaction.typ" class="form-control" required disabled>
                 <option value="income">Einnahme</option>
                 <option value="expense">Ausgabe</option>
               </select> 
@@ -34,16 +34,14 @@
                 <button class="delete" (click)="deleteTransaction(transaction.id)">
                     <i class="fas fa-trash"></i>
                 </button>
+                <button class="edit" (click)="toggleRowEdit(transaction.id, transaction.datum, transaction.beschreibung, transaction.betrag, transaction.typ, $event)">
+                  <i class="fas fa-pen"></i>
+                </button>
+              
             </td>
         </tr>
       }
-      <tr>
-        <td></td>
-        <td></td>
-        <td><b>Gesamtbudget: {{getTotalBudget()}}</b></td>
-        <td></td>
-        <td></td>
-    </tr>
+      <br><b>Saldo: {{getTotalBudget()}}</b>
     </table>
   </section>
 </div>
