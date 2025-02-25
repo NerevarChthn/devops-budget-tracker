@@ -57,3 +57,36 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+# PHP API Dokumentation
+
+Diese API bietet Endpunkte für den Zugriff auf eine MySQL-Datenbank zur Verwaltung von finanziellen Transaktionen.
+
+## **Endpunkte**
+
+### **1. `get-all.php`**  
+#### **Übergabe:**  
+- Keine Parameter erforderlich.
+
+#### **Rückgabe:**  
+Bei Erfolg:
+```json
+{
+  "state": "success",
+  "data": [
+    {
+      "id": 1,
+      "date": "2025-02-19",
+      "money": 12.45,
+      "intake": 1,
+      "description": "TEST"
+    },
+    {
+      "id": 2,
+      "date": "2025-02-19",
+      "money": 5.78,
+      "intake": 0,
+      "description": "TEST2"
+    }
+  ]
+}
