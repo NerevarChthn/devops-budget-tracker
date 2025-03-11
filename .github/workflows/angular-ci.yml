@@ -54,9 +54,9 @@ jobs:
     needs: docker-build
     steps:
       - name: Export Docker Image
-        run: docker save budget-tracker-frontend | gzip > budget-tracker-frontend.tar.gz
+        run: docker save budget-tracker-frontend
       - name: Upload Docker Image as Artifact
         uses: actions/upload-artifact@v4
         with:
           name: budget-tracker-frontend-image
-          path: budget-tracker-frontend.tar.gz
+          path: budget-tracker-frontend
